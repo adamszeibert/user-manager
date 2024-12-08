@@ -1,0 +1,4 @@
+Flask
+werkzeug
+pytest
+pytest-flask
