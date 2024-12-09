@@ -169,6 +169,10 @@ gunicorn -w 4 -b 0.0.0.0:5000 app:app
 
 Gunicorn allows multiple requests to be processed by using multiple worker processes while balancing incoming requests across worker processes. It can replace unresponsive workers, making the application fault tolerant, ensuring high availability. Horizontal scaling can be achieved by increasing the number of worker processes.
 
+### Horizontal Scaling - Containers, Cloud
+
+If we have to scale the application to serve millions of users then we can put it in a container (e.g. Docker) and run it on Kubernetes or AWS. Both solution offers robust load balancing and fault tolerancy. If we have users from all around the globe then we need to deploy our application to each geographical zones so the latency remain small for all users. AWS offers different Availability Zones while in the case of self hosted Kubernetes we would need to build at least one data center on each continent.
+
 ### Caching
 
 While the size of user data isn't large and complex enough to justify caching but if retreiving user information was slow, adding caching to the `get_user` endpoint could solve the issue. This can be done with the `Flask-Caching` module by adding `@cache.cached(timeout=60)` decorator to `get_user`.
